@@ -16,13 +16,18 @@
 nav{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin-bottom: ;
+    padding-top: 1em;
+    position: fixed;
+    background-color: white;
 }
 nav ul li{
     list-style-type: none;
 }
 .links{
     display: flex;
-    gap: 2em;
+    gap: .5em;
     align-self: center;
 }
 .links a{
@@ -34,7 +39,7 @@ nav ul li{
 .links a::before{
    content: "";
    position: absolute;
-   background-color: var(--menu-active--);
+   background-color: var(--soft-red--);
    bottom: 0;
    left: 0;
    width: 100%;
@@ -43,17 +48,18 @@ nav ul li{
    transition: 2s;
 }
 .links a:hover{
-    color: var(--menu-active--);
+    color: var(--soft-red--);
 }
 .links a:hover::before{
     transform: scale(1);
 }
 nav label{
     color:  black;
-    align-self: center;
+    align-self: flex-end;
     font-size: 3em;
     display: none;
-    padding-right: .5em;
+    /* padding:0 .5em 5em 0; */
+    
 }
 input{
     display: none;
@@ -63,5 +69,178 @@ input{
     display: none;
 }
 .image-container #desktop_image{
-    width: 60%;
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 40% 35% 25%;
+    width: 98%;
+    margin: 0 auto;
+    padding-top: 5em;
+    
+}
+.first-section{
+    grid-column: 1/3;
+    /* grid-row: 1/3; */
+    height: 15em;
+}
+.blue-background{
+    grid-row: 1 / 3;
+    grid-column: 3 / 4;
+    background-color: var(--Very-dark-blue--);
+    /* margin: auto; */
+    height: fit-content;
+    padding: .5em;
+    margin-left: 1em;
+   
+}
+.blue-background div{
+    border-bottom: .1em solid  hsla(36, 100%, 99%, 0.419);
+    color: var(--off-white--);
+    padding: .5em 2em 2em 2em;
+}
+.blue-background div h1{
+    color: var(--menu-active--);
+    font-size: 3em;
+
+}
+.blue-background div h3{
+    padding: .5em  0 .5em 0;
+}
+.blue-background div h3:hover{
+    color: var(--menu-active--);
+
+}
+.blue-background div p{
+    color:hsla(36, 100%, 99%, 0.419) ;
+}
+.heading{
+    font-size: 4.4em;
+    font-weight: 1500;
+    padding: .1em 0 0 0;
+    line-height: .9em;
+}
+.numbers{
+    display: flex;
+    gap: 2em;
+    margin-top: 3em;
+}
+.numbers img{
+    height: 7em;
+}
+.numbers .side{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.numbers h1{
+    color: var(--Grayish-blue--);
+}
+.numbers h3{
+    font-weight: bolder;
+}
+.numbers h3:hover{
+    color: var(--soft-red--);
+}
+.side p{
+    color: var(--Dark-grayish-blue--);
+}
+.btn button{
+    background-color: var(--soft-red--);
+        padding: .9em 2em .9em 2em;
+        font-size: 1.1em;
+        letter-spacing: .2em;
+        color: white;
+        border: none;
+}
+.btn button:hover{
+    background-color: var(--Very-dark-blue--);
+}
+.readmore_item{
+   display: flex;
+   flex-direction: column;
+   gap: 2em;
+}
+.readmore_item p{
+    line-height: 1.3em;
+    padding: 1em 3em 0 0;
+    font-size: 1.3em;
+    color: var(--Dark-grayish-blue--);
+
+}
+.n1{
+    margin-left: 1em;
+}
+.attribution{
+    background-color: var(--Very-dark-blue--);
+    padding: 2em;
+    margin-top: 4em;
+    color: white;
+}
+.attribution a{
+    text-decoration: none;
+    color: var(--soft-red--);
+}
+/* building the responsive */
+@media  (max-width: 768px) {
+    nav{
+        padding: .7em .3em 0 .3em;
+    }
+    nav label{
+        display: flex;
+        align-self: flex-start;
+        padding: 0 0 0 0;
+    }
+    nav label:hover{
+        color: var(--menu-active--);
+    }
+    #menuBtn:checked ~ ul{
+        transform: translate(20%);
+          box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+      
+    }
+    .links{
+        position: fixed;
+        top: 3.4em;
+       background-color: var(--off-white--);
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        transition: 1s ease;
+        transform: translate(100%);
+        gap: 2em;
+    }
+    .image-container #mobile_image{
+        display: block;
+        width: 100%;
+        height: 30em;
+    }
+    .image-container #desktop_image{
+        display: none;
+    }
+    main{
+        grid-template-columns: 1fr;
+        gap: 3em;
+        width: 95%;
+        
+    }
+    .first-section{
+        grid-column: 1;
+        height: 30em;
+    }
+    .blue-background{
+        grid-column: 1;
+        grid-row: 4;
+        margin-left: 0;
+    }
+    .n1{
+        margin-left: 0;
+    }
+    .numbers{
+        margin-top: 0;
+    }
+
 }
